@@ -10,29 +10,49 @@ echo ""
 
 function validateFirstName()
 {
+	read -p "Enter first name : " fname
+
 	fnamePattern="^[[:upper:]]+([a-z]{2,})"
 
 	if [[ $fname =~ $fnamePattern ]]
 	then
-		echo "Valid name"
+		echo "$fname is valid name"
 	else
-		echo "Invalid name"
+		echo "$fname is invalid name"
 	fi
 }
-read -p "Enter first name : " fname
-validateFirstName $fname
+validateFirstName
 
 
 function validateLastName()
 {
+	read -p "Enter last name : " lname
+
         lnamePattern="^[[:upper:]]+([a-z]{2,})"
 
         if [[ $lname =~ $lnamePattern ]]
         then
-                echo "Valid name"
+                echo "$lname is valid name"
         else
-                echo "Invalid name"
+                echo "$lname is invalid name"
         fi
 }
-read -p "Enter last name : " lname
-validateLastName $lname
+validateLastName
+
+
+function validateEmail()
+{
+	mailPattern="^[A-Za-z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,6}"
+
+	read -p "Enter email : " email
+
+	if [[ $email =~ $pattern ]]
+	then
+        	echo "$email is valid mail id"
+	else
+        	echo "$email is valid mail id"
+	fi
+}
+validateEmail
+
+
