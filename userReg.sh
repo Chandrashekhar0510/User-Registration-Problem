@@ -46,7 +46,7 @@ function validateEmail()
 
 	read -p "Enter email : " email
 
-	if [[ $email =~ $pattern ]]
+	if [[ $email =~ $mailpattern ]]
 	then
         	echo "$email is valid mail id"
 	else
@@ -56,3 +56,17 @@ function validateEmail()
 validateEmail
 
 
+function validateMobile()
+{
+        read -p "Enter mobile number with country code : " mob
+
+        mobPattern="^[0-9]{2}[[:space:]]([0-9]{10})"
+
+        if [[ $mob =~ $mobPattern ]]
+        then
+                echo "$mob is valid number"
+        else
+                echo "$mob is not valid number"
+        fi
+}
+validateMobile
