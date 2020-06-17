@@ -28,7 +28,7 @@ function validateLastName()
 {
 	read -p "Enter last name : " lname
 
-        lnamePattern="^[[:upper:]]+([a-z]{2,})"
+        lnamePattern="^[[:upper:]]{1}([a-z]{2,})"
 
         if [[ $lname =~ $lnamePattern ]]
         then
@@ -60,7 +60,7 @@ function validateMobile()
 {
         read -p "Enter mobile number with country code : " mob
 
-        mobPattern="^[0-9]{2}[[:space:]]([0-9]{10})"
+        mobPattern="^[0-9]{2}[[:space:]]([0-9]{10})$"
 
         if [[ $mob =~ $mobPattern ]]
         then
@@ -70,3 +70,19 @@ function validateMobile()
         fi
 }
 validateMobile
+
+
+function validatePassword()
+{
+	passPattern="^([a-zA-Z0-9@#!]){8,}$"
+
+	read -p "Enter password : " pwd
+
+	if [[ $pwd =~ $passPattern ]]
+	then
+		echo "$pwd is valid 8 character password"
+	else
+		echo "Password must contain minimum 8 characters"
+	fi
+}
+validatePassword
