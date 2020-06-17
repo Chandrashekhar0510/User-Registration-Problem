@@ -80,7 +80,7 @@ function validatePassword()
 	echo ""
 	passPattern1="^([a-zA-Z0-9@#!]){8,}$"
 	passpattern2="^([a-z0-9@#!]*)[A-Z]+([a-z0-9@#!]*)$"
-
+	passpattern3="^[a-zA-Z@#!]*[0-9]+[a-zA-Z@#!]*$"
 
 	read -p "Enter password : " pwd
 
@@ -88,7 +88,12 @@ function validatePassword()
 	then
 		if [[ $pwd =~ $passPattern2 ]]
 		then
-			echo "$pwd is valid password"
+			if [[ $pwd =~ $passPattern2 ]]
+	                then
+				echo "$pwd is valid password"
+			else
+				echo "Password must contain at least 1 number"
+			fi
 		else
 			echo "Password must contain atleast 1 upper case"
 		fi
